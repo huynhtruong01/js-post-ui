@@ -35,8 +35,8 @@ a > i {
   transition: all 0.25s;
 }
 
-a:hover > i {
-  transform: rotate(90deg);
+img {
+  width: 100%;
 }
 
 /* Add underline for all h1 */
