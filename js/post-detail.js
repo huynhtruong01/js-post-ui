@@ -33,7 +33,7 @@ function registerLightbox({ modalId, imgSelector, prevSelector, nextSelector }) 
 
   document.addEventListener('click', (e) => {
     const { target } = e
-    console.log(target)
+    // console.log(target)
     if (target.tagName !== 'IMG' || !target.dataset.album) return
     // query list img
     imgList = document.querySelectorAll('img[data-album="postImage"]')
@@ -83,7 +83,7 @@ function renderPostDetail(post) {
     '.post-detail-time-span',
     dayjs(post.updatedAt).format('- hh:mm DD/MM/YYYY')
   )
-  setTextContent(postDetail, '.post-detail-title', post.title)
+  setTextContent(postDetail, '.post-detail-description', post.description)
 
   // render edit page link
   const editPageLink = document.getElementById('goToEditPageLink')

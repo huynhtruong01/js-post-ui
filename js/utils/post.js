@@ -26,14 +26,26 @@ export function createPostItem(postItem, templateId) {
   // handle click
   const divElement = liElement.firstElementChild
   if (!divElement) return
-  divElement.addEventListener('click', () => handlePostClick(postItem.id))
+  divElement.addEventListener('click', (e) => {
+    const menu = liElement.querySelector('[data-id="menu"]')
+    if (menu && menu.contains(e.target)) return
+
+    window.location.assign(`/post-detail.html?id=${postItem.id}`)
+  })
+
+  // handle click edit
+  const btnEdit = liElement.querySelector('[data-id="edit"]')
+  console.log(btnEdit)
+  if (!btnEdit) return
+  btnEdit.addEventListener('click', (e) => {
+    window.location.assign(`/add-edit-post.html?id=${postItem.id}`)
+  })
 
   return liElement
 }
 
 function handlePostClick(id) {
   if (!id) return
-  window.location.assign(`/post-detail.html?id=${id}`)
 }
 
 export function renderPostList(ulId, postList) {

@@ -18,6 +18,22 @@ export function setPathImage(parent, selector, path) {
   })
 }
 
+export function setFieldValue(parent, selector, value) {
+  if (!parent) return
+
+  const element = parent.querySelector(selector)
+  if (!element) return
+  element.value = value
+}
+
+export function setBackgroundImage(parent, selector, imageUrl) {
+  if (!parent) return
+
+  const element = parent.querySelector(selector)
+  if (!element) return
+  element.style.backgroundImage = `url("${imageUrl}")`
+}
+
 export function createTime(milliSeconds) {
   if (!milliSeconds) return
 
@@ -40,13 +56,4 @@ export function truncate(text, maxLength) {
   if (text.length <= maxLength) return text
 
   return `${text.slice(0, maxLength)}…`
-}
-
-export function resetPostList(elementListId) {
-  if (!elementListId) return
-
-  const elementList = document.getElementById(elementListId)
-  if (!elementList) return
-
-  elementList.textContent = ''
 }

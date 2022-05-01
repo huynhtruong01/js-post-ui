@@ -37,6 +37,7 @@ a > i {
 
 img {
   width: 100%;
+  object-fit: cover;
 }
 
 /* Add underline for all h1 */
